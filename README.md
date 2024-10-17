@@ -1,18 +1,50 @@
-## Getting Started
+# Car Price Analysis
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+### Author: Maria Molebna
 
-## Folder Structure
+## Description
 
-The workspace contains two folders by default, where:
+This project analyzes car prices to identify outliers based on the interquartile range (IQR). It groups car prices into "data" (normal values) and "outliers" (extreme values).
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Features
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Calculates Q1, Q3, and IQR for car prices.
+- Identifies outliers using the formula: `Outliers = Prices < Q1 - 1.5 * IQR` or `Prices > Q3 + 1.5 * IQR`.
+- Outputs the count of normal prices and outliers.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Requirements
 
-## Dependency Management
+- **JDK 22+**
+  
+## How to Build and Run
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### Using Command Line
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/molebna/CarPriceAnalysis.git
+    cd CarPriceAnalysis
+    ```
+
+2. Compile:
+    ```bash
+    javac -d bin src/CarPriceAnalysis.java
+    ```
+
+3. Run:
+    ```bash
+    java -cp bin CarPriceAnalysis
+    ```
+
+## Example Output
+
+```
+--- Car price statistics ---
+Min price: 1530.06
+Max price: 183619.24
+Average price: 54438.21
+Standart deviation: 29538.23
+--- Outliers ---
+{data=493, outliers=7}
+```
+
